@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Switch, Route, Routes } from 'react-router-dom';
+import { Search } from './screens/Search';
+import { Details } from './screens/Details';
+import { NotFound } from './screens/NotFound';
+export function App() {
+	return (
+		<BrowserRouter>
+      <Routes>
+				<Route path="/detalhes/:id" element={<Details/>}></Route>
+				<Route path="/pesquisa" element={<Search/>}>detalhes</Route>
+				<Route path="*" element={<NotFound/>}>Página não encontrada</Route>
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      </Routes>
+		</BrowserRouter>
+	);
 }
 
 export default App;
