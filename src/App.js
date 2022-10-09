@@ -3,15 +3,17 @@ import { NormalizeStyles } from './shared/NormalizeStyles';
 import { Search } from './screens/Search';
 import { Details } from './screens/Details';
 import { NotFound } from './screens/NotFound';
+import { Header } from './common-components/Header/Header';
 export function App() {
 	return (
 		<BrowserRouter>
-      <Routes>
-				<Route path="/detalhes/:id" element={<Details/>}></Route>
-				<Route path="/pesquisa" element={<Search/>}></Route>
-				<Route path="*" element={<NotFound/>}>Página não encontrada</Route>
+		<Header></Header>
+		<Routes>
+					<Route path="/" element={<Search/>}></Route>
+					<Route path="/detalhes/:id" element={<Details/>}></Route>
+					<Route path="*" element={<NotFound/>}>Página não encontrada</Route>
 
-      </Routes>
+		</Routes>
 		</BrowserRouter>
 	);
 }
